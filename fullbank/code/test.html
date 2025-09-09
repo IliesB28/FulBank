@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FULBANK - Banque et Crypto</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.6;
+            color: #212529;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e6f2ff 100%);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #224399 0%, #80c2ec 100%);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: #80c2ec;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 24px;
+            color: #224399;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+            .nav-links a {
+                color: white;
+                text-decoration: none;
+                font-weight: 600;
+                transition: color 0.3s;
+            }
+
+                .nav-links a:hover {
+                    color: #80c2ec;
+                }
+
+        .login-btn {
+            background: #80c2ec;
+            color: #224399;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+            .login-btn:hover {
+                background: white;
+                transform: translateY(-2px);
+            }
+
+        /* Hero Section */
+        .hero {
+            padding: 100px 0;
+            text-align: center;
+            background: linear-gradient(135deg, #224399 0%, #80c2ec 100%);
+            color: white;
+        }
+
+            .hero h1 {
+                font-size: 3.5rem;
+                margin-bottom: 1rem;
+                font-weight: 700;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+                margin-bottom: 2rem;
+                opacity: 0.9;
+            }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: white;
+            color: #224399;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #224399;
+            margin-bottom: 3rem;
+            font-weight: 700;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-card {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+
+            .feature-card:hover {
+                transform: translateY(-5px);
+                border-color: #80c2ec;
+                box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #224399, #80c2ec);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-size: 2rem;
+            color: white;
+        }
+
+        .feature-card h3 {
+            color: #224399;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #e6f2ff 0%, #f8f9fa 100%);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+
+            .service-card:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            }
+
+        .service-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: #224399;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        /* Demo Section */
+        .demo {
+            padding: 80px 0;
+            background: white;
+            text-align: center;
+        }
+
+        .terminal-demo {
+            max-width: 800px;
+            margin: 3rem auto;
+            background: #224399;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+        }
+
+        .terminal-header {
+            background: #1a3366;
+            padding: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .terminal-title {
+            color: white;
+            font-weight: 600;
+        }
+
+        .terminal-screen {
+            background: #224399;
+            color: white;
+            padding: 2rem;
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .terminal-content {
+            text-align: center;
+        }
+
+        .terminal-logo {
+            width: 100px;
+            height: 100px;
+            background: #80c2ec;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+            font-size: 3rem;
+            color: #224399;
+        }
+
+        .auth-form {
+            background: rgba(255,255,255,0.1);
+            padding: 2rem;
+            border-radius: 12px;
+            margin-top: 2rem;
+            max-width: 300px;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+            text-align: left;
+        }
+
+            .form-group label {
+                display: block;
+                margin-bottom: 0.5rem;
+                font-weight: 600;
+            }
+
+            .form-group input {
+                width: 100%;
+                padding: 12px;
+                border: none;
+                border-radius: 8px;
+                font-size: 1rem;
+            }
+
+        /* Stats Section */
+        .stats {
+            padding: 80px 0;
+            background: #224399;
+            color: white;
+            text-align: center;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .stat-item h3 {
+            font-size: 3rem;
+            color: #80c2ec;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Footer */
+        footer {
+            background: #1a3366;
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            color: #80c2ec;
+            margin-bottom: 1rem;
+        }
+
+        .footer-section a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+            transition: color 0.3s;
+        }
+
+            .footer-section a:hover {
+                color: #80c2ec;
+            }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #495057;
+            opacity: 0.8;
+        }
+
+        /* Crypto ticker */
+        .crypto-ticker {
+            background: #1a3366;
+            color: white;
+            padding: 10px 0;
+            overflow: hidden;
+        }
+
+        .ticker-content {
+            display: flex;
+            animation: scroll 30s linear infinite;
+            white-space: nowrap;
+        }
+
+        .crypto-item {
+            margin-right: 3rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .crypto-price {
+            color: #80c2ec;
+            font-weight: 600;
+        }
+
+        @keyframes scroll {
+            0% {
+                transform: translateX(100%);
+            }
+
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .terminal-demo {
+                margin: 2rem 1rem;
+            }
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+        }
+
+        .modal-content {
+            background: white;
+            margin: 10% auto;
+            padding: 2rem;
+            border-radius: 12px;
+            width: 90%;
+            max-width: 500px;
+            position: relative;
+        }
+
+        .close {
+            position: absolute;
+            right: 1rem;
+            top: 1rem;
+            font-size: 2rem;
+            cursor: pointer;
+            color: #868e96;
+        }
+
+            .close:hover {
+                color: #224399;
+            }
+    </style>
+</head>
+<body>
+    <!-- Crypto Ticker -->
+    <div class="crypto-ticker">
+        <div class="ticker-content" id="cryptoTicker">
+            <div class="crypto-item">
+                <i class="fab fa-bitcoin"></i>
+                <span>BTC: <span class="crypto-price">€45,230</span> (+2.4%)</span>
+            </div>
+            <div class="crypto-item">
+                <i class="fab fa-ethereum"></i>
+                <span>ETH: <span class="crypto-price">€2,890</span> (-1.2%)</span>
+            </div>
+            <div class="crypto-item">
+                <i class="fas fa-coins"></i>
+                <span>LTC: <span class="crypto-price">€145</span> (+0.8%)</span>
+            </div>
+            <div class="crypto-item">
+                <i class="fas fa-dollar-sign"></i>
+                <span>EUR/USD: <span class="crypto-price">1.0845</span> (+0.3%)</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <div class="logo">
+                <div class="logo-icon">F</div>
+                Fulbank
+            </div>
+            <ul class="nav-links">
+                <li><a href="#accueil">Accueil</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#crypto">Crypto</a></li>
+                <li><a href="#bornes">Bornes</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="login-btn" onclick="openModal('loginModal')">
+                <i class="fas fa-user"></i> Connexion
+            </button>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="accueil">
+        <div class="container">
+            <h1>Bienvenue chez FULBANK</h1>
+            <p>La première banque hybride qui révolutionne vos finances en combinant services bancaires traditionnels et cryptomonnaies</p>
+            <div class="cta-buttons">
+                <a href="#demo" class="btn btn-primary">
+                    <i class="fas fa-play"></i> Voir la Démo
+                </a>
+                <a href="#services" class="btn btn-secondary">
+                    <i class="fas fa-info-circle"></i> En savoir plus
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="services">
+        <div class="container">
+            <h2 class="section-title">Nos Innovations</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-university"></i>
+                    </div>
+                    <h3>Banque Traditionnelle</h3>
+                    <p>Tous vos services bancaires habituels : comptes, virements, épargne, cartes bancaires avec la sécurité que vous connaissez.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fab fa-bitcoin"></i>
+                    </div>
+                    <h3>Portefeuille Crypto</h3>
+                    <p>Gérez Bitcoin, Ethereum et autres cryptomonnaies directement depuis votre compte bancaire principal.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-exchange-alt"></i>
+                    </div>
+                    <h3>Échange Instantané</h3>
+                    <p>Convertissez vos euros en crypto et vice-versa en temps réel avec les meilleurs taux du marché.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Sécurité Maximale</h3>
+                    <p>Authentification multi-facteurs, chiffrement bancaire et stockage sécurisé de vos cryptomonnaies.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Bornes Interactives</h3>
+                    <p>Accédez à tous vos services via nos bornes nouvelle génération disponibles 24h/24.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Analytics Avancées</h3>
+                    <p>Suivez la performance de vos investissements avec des outils d'analyse professionnels.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="crypto">
+        <div class="container">
+            <h2 class="section-title">Nos Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-icon">
+                            <i class="fas fa-coins"></i>
+                        </div>
+                        <h3>Trading Crypto</h3>
+                    </div>
+                    <ul>
+                        <li>Achat/vente de Bitcoin, Ethereum, Litecoin</li>
+                        <li>Cours en temps réel</li>
+                        <li>Frais transparents et compétitifs</li>
+                        <li>Exécution instantanée</li>
+                        <li>Historique détaillé des transactions</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-icon">
+                            <i class="fas fa-piggy-bank"></i>
+                        </div>
+                        <h3>Comptes Bancaires</h3>
+                    </div>
+                    <ul>
+                        <li>Compte courant sans frais de tenue</li>
+                        <li>Livrets d'épargne rémunérés</li>
+                        <li>Virements SEPA gratuits</li>
+                        <li>Cartes bancaires premium</li>
+                        <li>Découvert autorisé flexible</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-icon">
+                            <i class="fas fa-chart-pie"></i>
+                        </div>
+                        <h3>Gestion de Patrimoine</h3>
+                    </div>
+                    <ul>
+                        <li>Vue consolidée fiat + crypto</li>
+                        <li>Allocation d'actifs optimisée</li>
+                        <li>Alertes et notifications</li>
+                        <li>Reporting fiscal automatique</li>
+                        <li>Conseils personnalisés</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-icon">
+                            <i class="fas fa-lock"></i>
+                        </div>
+                        <h3>Sécurité Premium</h3>
+                    </div>
+                    <ul>
+                        <li>Cold storage pour 90% des crypto</li>
+                        <li>Assurance des dépôts</li>
+                        <li>Authentification biométrique</li>
+                        <li>Monitoring 24/7</li>
+                        <li>Support client prioritaire</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo Section -->
+    <section class="demo" id="demo">
+        <div class="container">
+            <h2 class="section-title">Démo Interactive</h2>
+            <p>Découvrez l'interface de nos bornes FULBANK</p>
+
+            <div class="terminal-demo">
+                <div class="terminal-header">
+                    <div class="terminal-title">
+                        <i class="fas fa-desktop"></i> Borne FULBANK - Agence Châtelet
+                    </div>
+                </div>
+                <div class="terminal-screen" id="terminalScreen">
+                    <div class="terminal-content">
+                        <div class="terminal-logo">F</div>
+                        <h2>Bienvenue chez FULBANK</h2>
+                        <p>Insérez votre carte bancaire ou touchez l'écran pour commencer</p>
+                        <div class="auth-form">
+                            <div class="form-group">
+                                <label>Identifiant</label>
+                                <input type="text" placeholder="Votre identifiant" id="demoUser">
+                            </div>
+                            <div class="form-group">
+                                <label>Code PIN</label>
+                                <input type="password" placeholder="****" id="demoPin">
+                            </div>
+                            <button class="btn btn-primary" onclick="startDemo()" style="width: 100%; margin-top: 1rem;">
+                                <i class="fas fa-sign-in-alt"></i> Connexion
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats" id="bornes">
+        <div class="container">
+            <h2 class="section-title" style="color: white;">FULBANK en Chiffres</h2>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h3 id="stat1">50+</h3>
+                    <p>Bornes Installées</p>
+                </div>
+                <div class="stat-item">
+                    <h3 id="stat2">10k+</h3>
+                    <p>Clients Actifs</p>
+                </div>
+                <div class="stat-item">
+                    <h3 id="stat3">€2.5M</h3>
+                    <p>Volume Crypto/Mois</p>
+                </div>
+                <div class="stat-item">
+                    <h3 id="stat4">99.9%</h3>
+                    <p>Disponibilité</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>FULBANK</h3>
+                    <p>La banque du futur, dès aujourd'hui. Services bancaires traditionnels et cryptomonnaies réunis dans une seule plateforme sécurisée.</p>
+                    <div style="margin-top: 1rem;">
+                        <i class="fab fa-twitter" style="margin-right: 1rem; font-size: 1.5rem;"></i>
+                        <i class="fab fa-linkedin" style="margin-right: 1rem; font-size: 1.5rem;"></i>
+                        <i class="fab fa-facebook" style="font-size: 1.5rem;"></i>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Services</h3>
+                    <a href="#">Comptes bancaires</a>
+                    <a href="#">Trading crypto</a>
+                    <a href="#">Cartes bancaires</a>
+                    <a href="#">Épargne</a>
+                    <a href="#">Virements</a>
+                </div>
+                <div class="footer-section">
+                    <h3>Support</h3>
+                    <a href="#">Centre d'aide</a>
+                    <a href="#">FAQ</a>
+                    <a href="#">Contact</a>
+                    <a href="#">Sécurité</a>
+                    <a href="#">Status système</a>
+                </div>
+                <div class="footer-section">
+                    <h3>Légal</h3>
+                    <a href="#">Mentions légales</a>
+                    <a href="#">Conditions générales</a>
+                    <a href="#">Politique de confidentialité</a>
+                    <a href="#">RGPD</a>
+                    <a href="#">Tarifs</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 FULBANK. Tous droits réservés. | Établissement de crédit agréé par l'ACPR</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('loginModal')">&times;</span>
+            <h2 style="color: #224399; margin-bottom: 2rem; text-align: center;">
+                <i class="fas fa-user-circle"></i> Connexion FULBANK
+            </h2>
+            <form>
+                <div class="form-group">
+                    <label>Email ou Identifiant</label>
+                    <input type="text" placeholder="votre.email@exemple.com">
+                </div>
+                <div class="form-group">
+                    <label>Mot de passe</label>
+                    <input type="password" placeholder="Votre mot de passe">
+                </div>
+                <div style="margin: 1rem 0;">
+                    <input type="checkbox" id="remember">
+                    <label for="remember" style="display: inline;">Se souvenir de moi</label>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%; margin-bottom: 1rem;">
+                    <i class="fas fa-sign-in-alt"></i> Se connecter
+                </button>
+                <div style="text-align: center;">
+                    <a href="#" style="color: #224399;">Mot de passe oublié ?</a> |
+                    <a href="#" style="color: #224399;">Créer un compte</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Animations des statistiques
+        function animateNumber(element, target, duration = 2000) {
+            let start = 0;
+            const increment = target / (duration / 16);
+
+            function update() {
+                start += increment;
+                if (start < target) {
+                    element.textContent = Math.floor(start) + (target > 100 ? '+' : '');
+                    requestAnimationFrame(update);
+                } else {
+                    if (element.id === 'stat3') {
+                        element.textContent = '€2.5M';
+                    } else if (element.id === 'stat4') {
+                        element.textContent = '99.9%';
+                    } else {
+                        element.textContent = target + '+';
+                    }
+                }
+            }
+            update();
+        }
+
+        // Observer pour déclencher les animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    if (entry.target.id === 'stat1') animateNumber(entry.target, 50);
+                    if (entry.target.id === 'stat2') animateNumber(entry.target, 10000);
+                    if (entry.target.id === 'stat3') animateNumber(entry.target, 25);
+                    if (entry.target.id === 'stat4') animateNumber(entry.target, 99);
+                }
+            });
+        });
+
+        document.querySelectorAll('[id^="stat"]').forEach(stat => {
+            observer.observe(stat);
+        });
+
+        // Modal functions
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = 'block';
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+        }
+
+        // Fermer modal en cliquant à l'extérieur
+        window.onclick = function (event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = 'none';
+            }
+        }
+
+        // Démo interactive
+        let demoStep = 0;
+        const demoSteps = [
+            {
+                title: "Tableau de Bord",
+                content: `
+                        <h3 style="margin-bottom: 2rem;">Bonjour Jean Dupont</h3>
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-bottom: 2rem;">
+                            <div style="background: rgba(255,255,255,0.1); padding: 1rem; border-radius: 8px; text-align: center;">
+                                <h4>Compte Courant</h4>
+                                <div style="font-size: 1.5rem; color: #80c2ec;">€3,247.80</div>
+                            </div>
+                            <div style="background: rgba(255,255,255,0.1); padding: 1rem; border-radius:
